@@ -1,0 +1,4 @@
+# yazi.toml
+[mgr]
+ratio = [1, 4, 5]
+show_hidden = true
