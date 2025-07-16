@@ -2,9 +2,9 @@
 # $ZSH_CUSTOM/env.zsh
 #
 
-####################
-# mirrors          #
-####################
+# ##################
+# mirrors
+# ##################
 
 # repo
 export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo'
