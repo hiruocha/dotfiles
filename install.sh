@@ -11,7 +11,7 @@ user_config() {
         case $answer in
         Y | y)
           echo "导入中……"
-          stow "$@" "$CONFIG"
+          stow --target=~ "$@" "$CONFIG"
           break
 	  ;;
         N | n)
