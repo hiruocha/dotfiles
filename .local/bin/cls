@@ -1,0 +1,2 @@
+#!/bin/sh
+clear && (pfetch || fastfetch || neofetch) 2>/dev/null
