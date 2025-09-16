@@ -1,3 +1,5 @@
+# Copyright © 2025 hiruocha
+
 [source.crates-io]
 replace-with = 'mirror'
 

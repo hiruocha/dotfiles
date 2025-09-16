@@ -1,4 +1,5 @@
 #!/bin/sh
+# Copyright © 2025 hiruocha
 
 stow -t "$HOME" --no-folding -R .
 
