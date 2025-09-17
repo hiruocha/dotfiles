@@ -4,7 +4,9 @@
 [ -d "$HOME/.local/bin" ] && export PATH=$HOME/.local/bin:$PATH
 
 # editor
-[ -n "$(command -v nvim)" ] && export EDITOR='nvim' || [ -n "$(command -v vim)" ] && export EDITOR='vim' || [ -n "$(command -v nano)" ] && export EDITOR='nano'
+{ [ -n "$(command -v nvim)" ] && export EDITOR='nvim'; } || \
+{ [ -n "$(command -v vim)" ] && export EDITOR='vim'; } || \
+{ [ -n "$(command -v nano)" ] && export EDITOR='nano'; }
 
 # flutter
 [ -d "$HOME/.local/bin/flutter/bin" ] && export PATH="$HOME/.local/bin/flutter/bin:$PATH"
