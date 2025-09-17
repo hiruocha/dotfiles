@@ -1,7 +1,7 @@
 # Copyright © 2025 hiruocha
 
 # local path
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+[ -d "$HOME/.local/bin" ] && export PATH=$HOME/.local/bin:$PATH
 
 # editor
 [ -n "$(command -v nvim)" ] && export EDITOR='nvim' || [ -n "$(command -v vim)" ] && export EDITOR='vim' || [ -n "$(command -v nano)" ] && export EDITOR='nano'
