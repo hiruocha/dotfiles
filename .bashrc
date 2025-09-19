@@ -5,7 +5,6 @@ case "$-" in
   *) return ;;
 esac
 
-# set prompt
 NORMAL_PS='\[\e[m\]'
 YELLOW_PS='\[\e[33m\]'
 BLUE_PS='\[\e[34m\]'
