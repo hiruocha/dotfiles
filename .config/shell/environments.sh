@@ -12,7 +12,7 @@ add_path () {
 }
 
 # local path
-add_path "$HOME/.local/bin"
+add_path "$HOME"/.local/bin
 
 # editor
 { [ -n "$(command -v nvim)" ] && export EDITOR='nvim'; } || \
@@ -21,7 +21,7 @@ add_path "$HOME/.local/bin"
 export VISUAL="$EDITOR"
 
 # flutter
-add_path "$HOME/.local/bin/flutter/bin"
+add_path "$HOME"/.local/bin/flutter/bin
 export PUB_HOSTED_URL="https://pub.flutter-io.cn"
 export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
 [ -n "$(command -v chromium)" ] && export CHROME_EXECUTABLE='/usr/bin/chromium'
@@ -30,7 +30,8 @@ export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
 [ -n "$(command -v ccache)" ] && {
   add_path "/usr/lib/ccache/bin"
   export USE_CCACHE=1
-  export CCACHE_EXEC="$(command -v ccache)"
+  CCACHE_EXEC="$(command -v ccache)"
+  export CCACHE_EXEC
 }
 
 # repo
@@ -46,3 +47,5 @@ export RUSTUP_DIST_SERVER='https://mirrors.tuna.tsinghua.edu.cn/rustup'
 
 # nodejs
 export NVM_NODEJS_ORG_MIRROR='https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/'
+
+unset -f add_path
