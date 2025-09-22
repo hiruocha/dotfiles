@@ -1,4 +1,4 @@
 #!/bin/sh
 # Copyright © 2025 hiruocha
 
-clear && { pfetch || fastfetch || neofetch; } 2>/dev/null
+clear && { pfetch || fastfetch || neofetch; } 2>/dev/null || true
