@@ -15,5 +15,13 @@ PS1="[${MAGENTA_PS}\u${NORMAL_PS}@${YELLOW_PS}\h${NORMAL_PS}]-[${BLUE_PS}\w${NOR
 [ -f "$HOME"/.config/shell/functions.sh ] && . "$HOME"/.config/shell/functions.sh
 
 HISTFILE="$HOME"/.local/state/bash_history
+HISTSIZE=100000
+HISTFILESIZE=100000
+HISTCONTROL=erasedups
+shopt -s cmdhist
+shopt -s histappend
+PROMPT_COMMAND='history -a; history -n; '"$PROMPT_COMMAND"
 
-{ pfetch || fastfetch || neofetch; } 2>/dev/null
+shopt -s checkwinsize
+
+{ pfetch || fastfetch || neofetch; } 2>/dev/null || true
