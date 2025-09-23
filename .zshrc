@@ -6,7 +6,7 @@ case "$-" in
 esac
 
 setopt PROMPT_SUBST
-PS1=$'[%F{magenta}%n%f@%F{yellow}%m%f]-[%F{blue}%~%f]\n%(?.%F{green}.%F{red})%(!.#.$)%f '
+PS1=$'[%F{magenta}%n%f@%F{yellow}%m%f]-[%F{blue}%~%f]-[%(?.%F{green}.%F{red})%?%f]\n%(!.#.$) '
 
 [ -f "$HOME"/.config/shell/aliases.sh ] && . "$HOME"/.config/shell/aliases.sh
 [ -f "$HOME"/.config/shell/functions.sh ] && . "$HOME"/.config/shell/functions.sh
