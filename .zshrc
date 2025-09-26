@@ -19,4 +19,4 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 
-{ pfetch || fastfetch || neofetch; } 2>/dev/null || true
+{ pfetch || fastfetch || hyfetch || neofetch || neowofetch; } 2>/dev/null || true

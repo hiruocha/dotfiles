@@ -24,4 +24,4 @@ PROMPT_COMMAND='history -a; history -n; '"$PROMPT_COMMAND"
 
 shopt -s checkwinsize
 
-{ pfetch || fastfetch || neofetch; } 2>/dev/null || true
+{ pfetch || fastfetch || hyfetch || neofetch || neowofetch; } 2>/dev/null || true
