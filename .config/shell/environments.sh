@@ -46,6 +46,9 @@ export RUSTUP_UPDATE_ROOT='https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup'
 export RUSTUP_DIST_SERVER='https://mirrors.tuna.tsinghua.edu.cn/rustup'
 
 # nodejs
-export NVM_NODEJS_ORG_MIRROR=https://mirrors.ustc.edu.cn/node/
+export NVM_NODEJS_ORG_MIRROR='https://mirrors.ustc.edu.cn/node/'
+
+# electron
+export ELECTRON_MIRROR='https://npmmirror.com/mirrors/electron/'
 
 unset -f add_path
