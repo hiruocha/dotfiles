@@ -50,5 +50,6 @@ export NVM_NODEJS_ORG_MIRROR='https://mirrors.ustc.edu.cn/node/'
 
 # electron
 export ELECTRON_MIRROR='https://npmmirror.com/mirrors/electron/'
+export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 unset -f add_path
