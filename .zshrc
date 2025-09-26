@@ -11,6 +11,7 @@ PS1=$'[%F{magenta}%n%f@%F{yellow}%m%f]-[%F{blue}%~%f]-[%(?.%F{green}.%F{red})%?%
 [ -f "$HOME"/.config/shell/aliases.sh ] && . "$HOME"/.config/shell/aliases.sh
 [ -f "$HOME"/.config/shell/functions.sh ] && . "$HOME"/.config/shell/functions.sh
 
+HISTFILE="$HOME"/.local/state/zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt APPEND_HISTORY
