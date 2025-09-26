@@ -8,4 +8,4 @@ stow -t "$HOME" --no-folding -R .
 [ -d "$HOME"/.local/state ] || mkdir -p "$HOME"/.local/state
 [ -f "$HOME"/.bash_history ] && mv "$HOME"/.bash_history "$HOME"/.local/state/bash_history
 
-[ -n "$BASH_VERSION" ] && . "$HOME"/.bashrc
+[ -n "$BASH_VERSION" ] && . "$HOME"/.bashrc || true
