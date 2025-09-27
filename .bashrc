@@ -11,10 +11,10 @@ BLUE_PS='\[\e[34m\]'
 MAGENTA_PS='\[\e[35m\]'
 PS1="[${MAGENTA_PS}\u${NORMAL_PS}@${YELLOW_PS}\h${NORMAL_PS}]-[${BLUE_PS}\w${NORMAL_PS}]\n\$ "
 
-[ -f "$HOME"/.config/shell/aliases.sh ] && . "$HOME"/.config/shell/aliases.sh
-[ -f "$HOME"/.config/shell/functions.sh ] && . "$HOME"/.config/shell/functions.sh
+[ -f "$XDG_CONFIG_HOME"/shell/aliases.sh ] && . "$XDG_CONFIG_HOME"/shell/aliases.sh
+[ -f "$XDG_CONFIG_HOME"/shell/functions.sh ] && . "$XDG_CONFIG_HOME"/shell/functions.sh
 
-HISTFILE="$HOME"/.local/state/bash_history
+HISTFILE="$XDG_STATE_HOME"/bash_history
 HISTSIZE=100000
 HISTFILESIZE=100000
 HISTCONTROL=erasedups

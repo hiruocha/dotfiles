@@ -20,6 +20,12 @@ add_path "$HOME"/.local/bin
 { [ -n "$(command -v nano)" ] && export EDITOR='nano'; }
 export VISUAL="$EDITOR"
 
+# xdg basedir
+export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_CACHE_HOME="$HOME"/.cache
+export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_STATE_HOME="$HOME"/.local/state
+
 # flutter
 add_path "$HOME"/.local/bin/flutter/bin
 export PUB_HOSTED_URL="https://pub.flutter-io.cn"
@@ -38,8 +44,9 @@ export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
 export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo'
 
 # go
-export GO111MODULE=on
 export GOPROXY='https://goproxy.cn'
+export GOMODCACHE="$XDG_CACHE_HOME"/go/mod
+export GOPATH="$XDG_DATA_HOME"/go
 
 # rustup
 export RUSTUP_UPDATE_ROOT='https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup'

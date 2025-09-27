@@ -8,10 +8,10 @@ esac
 setopt PROMPT_SUBST
 PS1=$'[%F{magenta}%n%f@%F{yellow}%m%f]-[%F{blue}%~%f]-[%(?.%F{green}.%F{red})%?%f]\n%(!.#.$) '
 
-[ -f "$HOME"/.config/shell/aliases.sh ] && . "$HOME"/.config/shell/aliases.sh
-[ -f "$HOME"/.config/shell/functions.sh ] && . "$HOME"/.config/shell/functions.sh
+[ -f "$XDG_CONFIG_HOME"/shell/aliases.sh ] && . "$XDG_CONFIG_HOME"/shell/aliases.sh
+[ -f "$XDG_CONFIG_HOME"/shell/functions.sh ] && . "$XDG_CONFIG_HOME"/shell/functions.sh
 
-HISTFILE="$HOME"/.local/state/zsh_history
+HISTFILE="$XDG_STATE_HOME"/zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt APPEND_HISTORY
