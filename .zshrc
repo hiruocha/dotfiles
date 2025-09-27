@@ -11,7 +11,8 @@ PS1=$'[%F{magenta}%n%f@%F{yellow}%m%f]-[%F{blue}%~%f]-[%(?.%F{green}.%F{red})%?%
 [ -f "$XDG_CONFIG_HOME"/shell/aliases.sh ] && . "$XDG_CONFIG_HOME"/shell/aliases.sh
 [ -f "$XDG_CONFIG_HOME"/shell/functions.sh ] && . "$XDG_CONFIG_HOME"/shell/functions.sh
 
-HISTFILE="$XDG_STATE_HOME"/zsh_history
+[ -d "$XDG_STATE_HOME"/zsh ] || mkdir -p "$XDG_STATE_HOME"/zsh
+HISTFILE="$XDG_STATE_HOME"/zsh/history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt APPEND_HISTORY

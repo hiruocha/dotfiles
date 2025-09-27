@@ -14,7 +14,8 @@ PS1="[${MAGENTA_PS}\u${NORMAL_PS}@${YELLOW_PS}\h${NORMAL_PS}]-[${BLUE_PS}\w${NOR
 [ -f "$XDG_CONFIG_HOME"/shell/aliases.sh ] && . "$XDG_CONFIG_HOME"/shell/aliases.sh
 [ -f "$XDG_CONFIG_HOME"/shell/functions.sh ] && . "$XDG_CONFIG_HOME"/shell/functions.sh
 
-HISTFILE="$XDG_STATE_HOME"/bash_history
+[ -d "$XDG_STATE_HOME"/bash ] || mkdir -p "$XDG_STATE_HOME"/bash
+HISTFILE="$XDG_STATE_HOME"/bash/history
 HISTSIZE=100000
 HISTFILESIZE=100000
 HISTCONTROL=erasedups
