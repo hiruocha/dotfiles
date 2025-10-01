@@ -8,3 +8,5 @@ alias ip='ip -c'
 alias l='ls -lAh'
 alias ll='ls -lh'
 alias la='ls -A'
+
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
