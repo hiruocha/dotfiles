@@ -13,6 +13,7 @@ add_path () {
 
 # local path
 add_path "$HOME"/.local/bin
+add_path "$HOME"/.minecraft/bin
 
 # editor
 { [ -n "$(command -v nvim)" ] && export EDITOR=nvim; } || \
