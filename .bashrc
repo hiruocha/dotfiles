@@ -11,6 +11,10 @@ BLUE_PS='\[\e[34m\]'
 MAGENTA_PS='\[\e[35m\]'
 PS1="[${MAGENTA_PS}\u${NORMAL_PS}@${YELLOW_PS}\h${NORMAL_PS}]-[${BLUE_PS}\w${NORMAL_PS}]\n\$ "
 
+[ -f /usr/share/bash-completion/bash_completion ] && \
+[ -z "${BASH_COMPLETION_VERSINFO-}" ] && \
+. /usr/share/bash-completion/bash_completion
+
 [ -f "$XDG_CONFIG_HOME"/shell/aliases.sh ] && . "$XDG_CONFIG_HOME"/shell/aliases.sh
 [ -f "$XDG_CONFIG_HOME"/shell/functions.sh ] && . "$XDG_CONFIG_HOME"/shell/functions.sh
 
