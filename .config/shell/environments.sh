@@ -37,6 +37,9 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 # cuda
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 
+# android
+export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
+
 # python
 [ -d "$XDG_STATE_HOME"/python ] || mkdir -p "$XDG_STATE_HOME"/python
 export PYTHON_HISTORY="$XDG_STATE_HOME"/python/history
