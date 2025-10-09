@@ -1,0 +1,29 @@
+# Copyright © 2025 hiruocha
+
+set shell sh
+set shellopts '-eu'
+set ifs "\n"
+set cursorpreviewfmt "\033[7;2m"
+set hidden
+
+cmd donothing
+cmd open :donothing
+cmd trash %trash-put -- $fx
+cmd delete %{{
+  set -f
+  printf "$fx\n"
+  printf "delete?[y/n]"
+  read ans
+  [ "$ans" = "y" ] || [ "$ans" = "Y" ] && rm -rf $fx
+}}
+cmd openfile &{{
+  case $(file --mime-type -Lb $f) in
+    text/*) lf -remote "send $id \$$EDITOR \$fx";;
+    *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+  esac
+}}
+
+map d :trash
+map D :delete
+map x :cut
+map <enter> :openfile

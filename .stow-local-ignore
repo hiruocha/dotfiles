@@ -3,4 +3,6 @@
 ^/README.*
 ^/LICENSE.*
 
-install.sh
+.*example
+
+install.*
