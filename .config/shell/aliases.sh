@@ -14,6 +14,3 @@ alias cls='clear && { pfetch || fastfetch || hyfetch || neofetch || neowofetch; 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
-for cmd in code code-oss codium vscodium vscodium-electron; do
-  [ -n "$(command -v "$cmd")" ] && alias "$cmd"="$cmd"' --extensions-dir "$XDG_DATA_HOME/vscode"'
-done
