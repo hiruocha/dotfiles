@@ -20,7 +20,7 @@ shopt -s cmdhist
 shopt -s histappend
 PROMPT_COMMAND='history -a; history -n; '"$PROMPT_COMMAND"
 
-shopt -s checkwinsize
+[ "$TERM" != linux ] && export LANG=zh_CN.UTF-8
 
 [ -f /usr/share/bash-completion/bash_completion ] && \
 [ -z "${BASH_COMPLETION_VERSINFO-}" ] && \
