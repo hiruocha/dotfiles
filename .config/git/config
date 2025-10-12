@@ -3,3 +3,5 @@
 [user]
   name = hiruocha
   email = hiruocha@gmail.com
+[color]
+  ui = auto
