@@ -1,0 +1,6 @@
+#!/bin/sh
+# Copyright © 2025 hiruocha
+
+[ -d "$XDG_DATA_HOME"/LiteloaderQQNT ] || mkdir -p "$XDG_DATA_HOME"/LiteloaderQQNT
+export LITELOADERQQNT_PROFILE="$XDG_DATA_HOME"/LiteloaderQQNT
+/usr/bin/linuxqq "$@"
