@@ -5,8 +5,17 @@ case "$-" in
   *) return ;;
 esac
 
+[ "$(tty)" = "/dev/tty1" ] && exec niri-session
+
 setopt PROMPT_SUBST
-PS1=$'[%F{magenta}%n%f@%F{yellow}%m%f]-[%F{blue}%~%f]-[%(?.%F{green}.%F{red})%?%f]\n%(!.#.$) '
+if [ -f /usr/share/git/completion/git-prompt.sh ]; then
+  . /usr/share/git/completion/git-prompt.sh
+  GIT_PS1_SHOWDIRTYSTATE=1
+  GIT_PS1_SHOWCOLORHINTS=1
+  PS1=$'[%F{magenta}%n%f@%F{yellow}%m%f]-[%F{blue}%~%f]-[%(?.%F{green}.%F{red})%?%f] $(__git_ps1 "%s") \n%(!.#.$) '
+else
+  PS1=$'[%F{magenta}%n%f@%F{yellow}%m%f]-[%F{blue}%~%f]-[%(?.%F{green}.%F{red})%?%f]\n%(!.#.$) '
+fi
 
 [ -d "$XDG_STATE_HOME"/zsh ] || mkdir -p "$XDG_STATE_HOME"/zsh
 HISTFILE="$XDG_STATE_HOME"/zsh/history
@@ -28,5 +37,8 @@ compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
 
 [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
 . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+. /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh && \
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 { pfetch || fastfetch || hyfetch || neofetch || neowofetch; } 2>/dev/null || true
