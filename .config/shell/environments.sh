@@ -80,5 +80,6 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 # electron
 export ELECTRON_MIRROR="https://npmmirror.com/mirrors/electron/"
 export ELECTRON_OZONE_PLATFORM_HINT=auto
+export ELECTRON_TRASH=trash-cli
 
 unset -f add_path
