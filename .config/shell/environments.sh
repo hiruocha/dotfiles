@@ -29,6 +29,11 @@ export XDG_STATE_HOME="$HOME"/.local/state
 
 # gpg
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+unset SSH_AGENT_PID
+[ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ] && \
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # gtk
 export GTK_RC_FILES="$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
