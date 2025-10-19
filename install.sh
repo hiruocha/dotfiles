@@ -5,11 +5,6 @@ set -e
 
 stow -t "$HOME" --no-folding -R .
 
-[ -L "$HOME"/.ssh/config ] && {
-  chmod 700 "$HOME"/.ssh
-  chmod 600 "$HOME"/.ssh/config
-} || true
-
 [ -d "$HOME"/.local/state/bash ] || \
 mkdir -p "$HOME"/.local/state/bash
 [ -f "$HOME"/.bash_history ] && \
