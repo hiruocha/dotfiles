@@ -5,7 +5,7 @@ case "$-" in
   *) return ;;
 esac
 
-[ "$(tty)" = "/dev/tty1" ] && exec niri-session
+[ -n $(command -v niri-session) ] && [ "$(tty)" = "/dev/tty1" ] && exec niri-session
 
 setopt PROMPT_SUBST
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
