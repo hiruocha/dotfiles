@@ -1,3 +1,4 @@
+#!/bin/sh
 # Copyright © 2025 hiruocha
 
 alias ls='ls --color=auto -F'

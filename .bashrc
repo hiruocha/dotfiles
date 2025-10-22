@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Copyright © 2025 hiruocha
 
 case "$-" in
@@ -22,11 +23,13 @@ PROMPT_COMMAND='history -a; history -n; '"$PROMPT_COMMAND"
 
 [ "$TERM" != linux ] && export LANG=zh_CN.UTF-8
 
+# shellcheck source=/dev/null
 [ -f /usr/share/bash-completion/bash_completion ] && \
 [ -z "${BASH_COMPLETION_VERSINFO-}" ] && \
 . /usr/share/bash-completion/bash_completion
-
+# shellcheck source=/dev/null
 [ -f "$XDG_CONFIG_HOME"/shell/aliases.sh ] && . "$XDG_CONFIG_HOME"/shell/aliases.sh
+# shellcheck source=/dev/null
 [ -f "$XDG_CONFIG_HOME"/shell/functions.sh ] && . "$XDG_CONFIG_HOME"/shell/functions.sh
 
 { pfetch || fastfetch || hyfetch || neofetch || neowofetch; } 2>/dev/null || true

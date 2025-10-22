@@ -1,5 +1,8 @@
+#!/usr/bin/env bash
 # Copyright © 2025 hiruocha
 
-[ -f "$HOME"/.config/shell/environments.sh ] && . "$HOME"/.config/shell/environments.sh
+# shellcheck source=/dev/null
+[ -f "$HOME"/.config/shell/profile.sh ] && . "$HOME"/.config/shell/profile.sh
 
+# shellcheck source=/dev/null
 [ -f "$HOME"/.bashrc ] && . "$HOME"/.bashrc

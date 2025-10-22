@@ -1,3 +1,4 @@
+#!/bin/sh
 # Copyright © 2025 hiruocha
 
 add_path () {
@@ -13,7 +14,7 @@ add_path () {
 
 # local path
 add_path "$HOME"/.local/bin
-add_path "$HOME"/.minecraft/bin
+add_path "$HOME"/.local/bin/BBDown
 
 # editor
 { [ -n "$(command -v nvim)" ] && export EDITOR=nvim; } || \
@@ -31,8 +32,10 @@ export XDG_STATE_HOME="$HOME"/.local/state
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 unset SSH_AGENT_PID
 [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ] && \
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-export GPG_TTY=$(tty)
+SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+export SSH_AUTH_SOCK
+GPG_TTY=$(tty)
+export GPG_TTY
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # gtk

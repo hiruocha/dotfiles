@@ -1,7 +1,8 @@
+#!/bin/sh
 # Copyright © 2025 hiruocha
 
 lf () {
-  cd "$(command lf -print-last-dir "$@")"
+  cd "$(command lf -print-last-dir "$@")" || exit
 }
 
 set_proxy() {
