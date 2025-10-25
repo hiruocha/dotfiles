@@ -12,6 +12,9 @@ add_path () {
   esac
 }
 
+# locale
+[ "$TERM" != linux ] && export LANG=zh_CN.UTF-8
+
 # local path
 add_path "$HOME"/.local/bin
 add_path "$HOME"/.local/bin/BBDown

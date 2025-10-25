@@ -27,6 +27,9 @@ PROMPT_COMMAND='history -a; history -n; '"$PROMPT_COMMAND"
 [ -f /usr/share/bash-completion/bash_completion ] && \
 [ -z "${BASH_COMPLETION_VERSINFO-}" ] && \
 . /usr/share/bash-completion/bash_completion
+
+# shellcheck source=/dev/null
+[ -f "$HOME"/.config/shell/profile.sh ] && . "$HOME"/.config/shell/profile.sh
 # shellcheck source=/dev/null
 [ -f "$XDG_CONFIG_HOME"/shell/aliases.sh ] && . "$XDG_CONFIG_HOME"/shell/aliases.sh
 # shellcheck source=/dev/null

@@ -35,8 +35,8 @@ setopt HIST_EXPIRE_DUPS_FIRST
 autoload -U compinit
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
-[ "$TERM" != linux ] && export LANG=zh_CN.UTF-8
-
+# shellcheck source=/dev/null
+[ -f "$HOME"/.config/shell/profile.sh ] && . "$HOME"/.config/shell/profile.sh
 # shellcheck source=/dev/null
 [ -f "$XDG_CONFIG_HOME"/shell/aliases.sh ] && . "$XDG_CONFIG_HOME"/shell/aliases.sh
 # shellcheck source=/dev/null
