@@ -6,7 +6,21 @@ case "$-" in
   *) return ;;
 esac
 
-[ -n "$(command -v niri-session)" ] && [ "$(tty)" = "/dev/tty1" ] && exec niri-session
+if [ "$(tty)" = "/dev/tty1" ]; then
+  [ -n "$(command -v sway)" ] && \
+    val=$(udevadm info -a -n /dev/dri/card1 | grep boot_vga | rev | cut -c 2)
+    export LANG=zh_CN.UTF-8
+    WLR_DRM_DEVICES="/dev/dri/card$val" exec sway || \
+  [ -n "$(command -v niri-session)" ] && \
+    exec niri-session
+fi
+
+# shellcheck source=/dev/null
+[ -f "$HOME"/.config/shell/profile.sh ] && . "$HOME"/.config/shell/profile.sh
+# shellcheck source=/dev/null
+[ -f "$XDG_CONFIG_HOME"/shell/aliases.sh ] && . "$XDG_CONFIG_HOME"/shell/aliases.sh
+# shellcheck source=/dev/null
+[ -f "$XDG_CONFIG_HOME"/shell/functions.sh ] && . "$XDG_CONFIG_HOME"/shell/functions.sh
 
 setopt PROMPT_SUBST
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
@@ -34,13 +48,6 @@ setopt HIST_EXPIRE_DUPS_FIRST
 
 autoload -U compinit
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
-
-# shellcheck source=/dev/null
-[ -f "$HOME"/.config/shell/profile.sh ] && . "$HOME"/.config/shell/profile.sh
-# shellcheck source=/dev/null
-[ -f "$XDG_CONFIG_HOME"/shell/aliases.sh ] && . "$XDG_CONFIG_HOME"/shell/aliases.sh
-# shellcheck source=/dev/null
-[ -f "$XDG_CONFIG_HOME"/shell/functions.sh ] && . "$XDG_CONFIG_HOME"/shell/functions.sh
 
 # shellcheck source=/dev/null
 [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
