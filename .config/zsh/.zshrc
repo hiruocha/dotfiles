@@ -10,6 +10,7 @@ if [ "$(tty)" = "/dev/tty1" ]; then
   [ -n "$(command -v sway)" ] && \
     val=$(udevadm info -a -n /dev/dri/card1 | grep boot_vga | rev | cut -c 2)
     export LANG=zh_CN.UTF-8
+    export XMODIFIERS=@im=fcitx
     WLR_DRM_DEVICES="/dev/dri/card$val" exec sway || \
   [ -n "$(command -v niri-session)" ] && \
     exec niri-session
