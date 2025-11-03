@@ -3,10 +3,15 @@
 [user]
   name = hiruocha
   email = hiruocha@gmail.com
-	signingkey = FE3D8E6594173A0C
+  signingkey = FE3D8E6594173A0C
 [color]
   ui = auto
 [commit]
-	gpgsign = true
+  gpgsign = true
 [tag]
-	gpgSign = true
+  gpgSign = true
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
