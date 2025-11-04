@@ -1,5 +1,0 @@
-#!/bin/sh
-# Copyright © 2025 hiruocha
-
-[ -d "$XDG_DATA_HOME"/vscode ] || mkdir -p "$XDG_DATA_HOME"/vscode
-/usr/bin/code-oss --extensions-dir "$XDG_DATA_HOME"/vscode "$@"
