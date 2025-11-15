@@ -15,6 +15,16 @@ add_path () {
 # locale
 [ "$TERM" != linux ] && export LANG=zh_CN.UTF-8
 
+# proxy
+export http_proxy="http://192.168.0.10:7890"
+export https_proxy="http://192.168.0.10:7890"
+export HTTP_PROXY="http://192.168.0.10:7890"
+export HTTPS_PROXY="http://192.168.0.10:7890"
+export all_proxy="socks5://192.168.0.10:7890"
+export ALL_PROXY="socks5://192.168.0.10:7890"
+export no_proxy="localhost,127.0.0.1,::1"
+export NO_PROXY="localhost,127.0.0.1,::1"
+
 # local path
 add_path "$HOME"/.local/bin
 add_path "$HOME"/.local/bin/BBDown
