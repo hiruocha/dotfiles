@@ -13,5 +13,3 @@ alias la='ls -A'
 alias cls='clear && { pfetch || fastfetch || hyfetch || neofetch || neowofetch; } 2>/dev/null || true'
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
-
-alias adb='HOME="$XDG_DATA_HOME"/android adb'
