@@ -4,3 +4,5 @@
 lf () {
   cd "$(command lf -print-last-dir "$@")" || exit
 }
+
+eval "$(thefuck --alias)"
