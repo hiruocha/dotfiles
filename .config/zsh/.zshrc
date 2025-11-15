@@ -46,10 +46,16 @@ autoload -U compinit
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
 [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
-. /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+. /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh && \
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
 . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh && \
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+{
+  typeset -A ZSH_HIGHLIGHT_STYLES
+  ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta'
+  ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
+  ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
+}
 [ -f /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh ] && \
 . /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh && \
 bindkey '^[[A' history-substring-search-up && bindkey '^[[B' history-substring-search-down

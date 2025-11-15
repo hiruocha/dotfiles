@@ -10,6 +10,6 @@ alias l='ls -lAh'
 alias ll='ls -lh'
 alias la='ls -A'
 
-alias cls='clear && { pfetch || fastfetch || hyfetch || neofetch || neowofetch; } 2>/dev/null || true'
+alias cls='clear && fastfetch'
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
