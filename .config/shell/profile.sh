@@ -41,6 +41,16 @@ export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_STATE_HOME="$HOME"/.local/state
 
+# xdg userdirs
+export XDG_DESKTOP_DIR="$HOME"/desktop
+export XDG_DOWNLOAD_DIR="$HOME"/downloa
+export XDG_TEMPLATES_DIR="$HOME"/templa
+export XDG_PUBLICSHARE_DIR="$HOME"/publ
+export XDG_DOCUMENTS_DIR="$HOME"/docume
+export XDG_MUSIC_DIR="$HOME"/music
+export XDG_PICTURES_DIR="$HOME"/picture
+export XDG_VIDEOS_DIR="$HOME"/videos
+
 # gpg
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 unset SSH_AGENT_PID
