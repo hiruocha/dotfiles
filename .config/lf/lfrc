@@ -3,11 +3,11 @@
 set shell sh
 set shellopts '-eu'
 set ifs "\n"
-set cursorpreviewfmt "\033[7;2m"
 set hidden
 
 cmd donothing
 cmd open :donothing
+cmd mkdir %mkdir "$@"
 cmd trash %trash-put -- $fx
 cmd delete %{{
   set -f
@@ -23,6 +23,7 @@ cmd openfile &{{
   esac
 }}
 
+map a push :mkdir<space>
 map d :trash
 map D :delete
 map x :cut
