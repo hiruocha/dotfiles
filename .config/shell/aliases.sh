@@ -13,3 +13,10 @@ alias la='ls -A'
 alias cls='clear && fastfetch'
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
+alias g=git
+alias ga='git add'
+alias gp='git push'
+alias gf='git fetch'
+alias gl='git pull'
+alias gst='git status'
