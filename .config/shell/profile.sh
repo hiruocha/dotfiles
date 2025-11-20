@@ -54,6 +54,10 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 # gtk
 export GTK_RC_FILES="$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc":"$XDG_CONFIG_HOME/gtk-2.0/gtkrc.mine"
+export GTK_THEME="catppuccin-mocha-mauve-standard+default"
+
+# qt
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 # cargo
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
@@ -104,6 +108,5 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 # electron
 export ELECTRON_MIRROR="https://npmmirror.com/mirrors/electron/"
 export ELECTRON_OZONE_PLATFORM_HINT=auto
-export ELECTRON_TRASH=trash-cli
 
 unset -f add_path
