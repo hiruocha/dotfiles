@@ -41,6 +41,9 @@ export XDG_MUSIC_DIR="$HOME"/music
 export XDG_PICTURES_DIR="$HOME"/pictures
 export XDG_VIDEOS_DIR="$HOME"/videos
 
+# fcitx5
+export XMODIFIERS=@im=fcitx
+
 # gpg
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 unset SSH_AGENT_PID
