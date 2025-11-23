@@ -15,16 +15,6 @@ add_path () {
 # locale
 [ "$TERM" != linux ] && export LANG=zh_CN.UTF-8
 
-# proxy
-export http_proxy="http://192.168.0.10:7890"
-export https_proxy="http://192.168.0.10:7890"
-export HTTP_PROXY="http://192.168.0.10:7890"
-export HTTPS_PROXY="http://192.168.0.10:7890"
-export all_proxy="socks5://192.168.0.10:7890"
-export ALL_PROXY="socks5://192.168.0.10:7890"
-export no_proxy="localhost,127.0.0.1,::1"
-export NO_PROXY="localhost,127.0.0.1,::1"
-
 # local path
 add_path "$HOME"/.local/bin
 add_path "$HOME"/.local/bin/BBDown
@@ -43,12 +33,12 @@ export XDG_STATE_HOME="$HOME"/.local/state
 
 # xdg userdirs
 export XDG_DESKTOP_DIR="$HOME"/desktop
-export XDG_DOWNLOAD_DIR="$HOME"/downloa
-export XDG_TEMPLATES_DIR="$HOME"/templa
-export XDG_PUBLICSHARE_DIR="$HOME"/publ
-export XDG_DOCUMENTS_DIR="$HOME"/docume
+export XDG_DOWNLOAD_DIR="$HOME"/downloads
+export XDG_TEMPLATES_DIR="$HOME"/templates
+export XDG_PUBLICSHARE_DIR="$HOME"/public
+export XDG_DOCUMENTS_DIR="$HOME"/documents
 export XDG_MUSIC_DIR="$HOME"/music
-export XDG_PICTURES_DIR="$HOME"/picture
+export XDG_PICTURES_DIR="$HOME"/pictures
 export XDG_VIDEOS_DIR="$HOME"/videos
 
 # gpg
@@ -64,10 +54,6 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 # gtk
 export GTK_RC_FILES="$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc":"$XDG_CONFIG_HOME/gtk-2.0/gtkrc.mine"
-export GTK_THEME="catppuccin-mocha-mauve-standard+default"
-
-# qt
-export QT_QPA_PLATFORMTHEME=qt5ct
 
 # cargo
 export CARGO_HOME="$XDG_DATA_HOME"/cargo

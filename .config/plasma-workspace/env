@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# shellcheck source=/dev/null
+[ -f "$HOME"/.config/shell/profile.sh ] && . "$HOME"/.config/shell/profile.sh

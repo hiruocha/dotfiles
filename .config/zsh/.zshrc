@@ -6,18 +6,6 @@ case "$-" in
   *) return ;;
 esac
 
-if [ "$(tty)" = "/dev/tty1" ]; then
-  [ -n "$(command -v hyprland)" ] && \
-    exec hyprland
-  [ -n "$(command -v sway)" ] && \
-    val=$(udevadm info -a -n /dev/dri/card1 | grep boot_vga | rev | cut -c 2)
-    export LANG=zh_CN.UTF-8
-    export XMODIFIERS=@im=fcitx
-    WLR_DRM_DEVICES="/dev/dri/card$val" exec sway || \
-  [ -n "$(command -v niri-session)" ] && \
-    exec niri-session
-fi
-
 [ -f "$HOME"/.config/shell/profile.sh ] && . "$HOME"/.config/shell/profile.sh
 [ -f "$XDG_CONFIG_HOME"/shell/aliases.sh ] && . "$XDG_CONFIG_HOME"/shell/aliases.sh
 [ -f "$XDG_CONFIG_HOME"/shell/functions.sh ] && . "$XDG_CONFIG_HOME"/shell/functions.sh
