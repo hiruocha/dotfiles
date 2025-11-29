@@ -103,6 +103,9 @@ export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export NVM_NODEJS_ORG_MIRROR="https://mirrors.ustc.edu.cn/node/"
 [ -d "$XDG_DATA_HOME"/nvm ] || mkdir -p "$XDG_DATA_HOME"/nvm
 export NVM_DIR="$XDG_DATA_HOME"/nvm
+export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME"/npm/config/npm-init.js
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
+export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR"/npm
 
 # electron
 export ELECTRON_MIRROR="https://npmmirror.com/mirrors/electron/"
