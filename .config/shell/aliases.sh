@@ -10,8 +10,6 @@ alias l='ls -lAh'
 alias ll='ls -lh'
 alias la='ls -A'
 
-alias cls='clear && fastfetch'
-
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
 alias g=git

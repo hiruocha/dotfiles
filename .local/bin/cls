@@ -1,0 +1,10 @@
+#!/bin/sh
+
+clear
+{
+  pfetch ||
+  fastfetch ||
+  hyfetch ||
+  neofetch
+} 2>/dev/null ||
+true
