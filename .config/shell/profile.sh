@@ -56,10 +56,7 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # gtk
 export GTK_RC_FILES="$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc":"$XDG_CONFIG_HOME/gtk-2.0/gtkrc.mine"
-
-# cargo
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
 # cuda
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
@@ -93,11 +90,16 @@ export GOPROXY="https://goproxy.cn"
 export GOMODCACHE="$XDG_CACHE_HOME"/go/mod
 export GOPATH="$XDG_DATA_HOME"/go
 
-# rustup
+# rust
 export RUSTUP_UPDATE_ROOT="https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup"
 export RUSTUP_DIST_SERVER="https://mirrors.tuna.tsinghua.edu.cn/rustup"
 [ -d "$XDG_DATA_HOME"/rustup ] || mkdir -p "$XDG_DATA_HOME"/rustup
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+
+# dotnet
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
+export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 
 # nodejs
 export NVM_NODEJS_ORG_MIRROR="https://mirrors.ustc.edu.cn/node/"
@@ -110,5 +112,8 @@ export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR"/npm
 # electron
 export ELECTRON_MIRROR="https://npmmirror.com/mirrors/electron/"
 export ELECTRON_OZONE_PLATFORM_HINT=auto
+
+# vscode
+export VSCODE_CLI_DATA_DIR="$XDG_DATA_HOME"/codium/cli
 
 unset -f add_path
