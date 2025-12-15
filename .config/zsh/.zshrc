@@ -50,4 +50,7 @@ bindkey '^[[A' history-substring-search-up && bindkey '^[[B' history-substring-s
 [ -f /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh ] && \
 . /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
 
+[ -f /usr/share/doc/filkoll/command-not-found.zsh ] && \
+. /usr/share/doc/filkoll/command-not-found.zsh
+
 { pfetch || fastfetch || hyfetch || neofetch || neowofetch; } 2>/dev/null || true

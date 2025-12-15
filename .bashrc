@@ -35,4 +35,8 @@ PROMPT_COMMAND='history -a; history -n; '"$PROMPT_COMMAND"
 [ -z "${BASH_COMPLETION_VERSINFO-}" ] && \
 . /usr/share/bash-completion/bash_completion
 
+# shellcheck source=/dev/null
+[ -f /usr/share/doc/filkoll/command-not-found.bash ] && \
+. /usr/share/doc/filkoll/command-not-found.bash
+
 { pfetch || fastfetch || hyfetch || neofetch || neowofetch; } 2>/dev/null || true
