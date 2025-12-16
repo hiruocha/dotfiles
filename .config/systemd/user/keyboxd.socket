@@ -1,0 +1,8 @@
+[Unit]
+Description=GnuPG public key management service
+
+[Socket]
+ListenStream=%t/gnupg/d.744feffnrxcmhut7p49jspwc/S.keyboxd
+FileDescriptorName=std
+SocketMode=0600
+DirectoryMode=0700
