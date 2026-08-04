@@ -15,3 +15,10 @@
 
 [shell.files]
 shell = "~/.config/shell"
+
+[bash]
+depends = ["shell"]
+
+[bash.files]
+"bash/bashrc" = "~/.bashrc"
+"bash/profile" = "~/.bash_profile"
