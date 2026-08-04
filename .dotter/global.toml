@@ -22,3 +22,8 @@ depends = ["shell"]
 [bash.files]
 "bash/bashrc" = "~/.bashrc"
 "bash/profile" = "~/.bash_profile"
+
+[yazi]
+
+[yazi.files]
+yazi = "~/.config/yazi"
