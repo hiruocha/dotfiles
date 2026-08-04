@@ -27,3 +27,6 @@ depends = ["shell"]
 
 [yazi.files]
 yazi = "~/.config/yazi"
+
+[cli-meta]
+depends = ["bash", "yazi"]
