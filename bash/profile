@@ -12,5 +12,5 @@
 # If not, see <https://www.gnu.org/licenses/>.
 
 # shellcheck source=/dev/null
-[ -f "$HOME/.config/shell/profile.sh" ] && . "$HOME/.config/shell/profile.sh"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh"
 [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
