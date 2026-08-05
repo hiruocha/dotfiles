@@ -30,3 +30,11 @@ yazi = "~/.config/yazi"
 
 [cli-meta]
 depends = ["bash", "yazi"]
+
+[pacman]
+
+[pacman.files]
+pacman = "~/.config/pacman"
+
+[arch-meta]
+depends = ["pacman"]
