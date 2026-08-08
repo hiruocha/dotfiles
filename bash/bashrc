@@ -16,12 +16,18 @@ case "$-" in
   *) return ;;
 esac
 
-# shellcheck source=/dev/null
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh"
-# shellcheck source=/dev/null
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh"
-# shellcheck source=/dev/null
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functions.sh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functions.sh"
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh" ]; then
+  # shellcheck source=/dev/null
+  . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh"
+fi
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh" ]; then
+  # shellcheck source=/dev/null
+  . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh"
+fi
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functions.sh" ]; then
+  # shellcheck source=/dev/null
+  . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functions.sh"
+fi
 
 NORMAL_PS='\[\e[m\]'
 YELLOW_PS='\[\e[33m\]'
@@ -38,11 +44,12 @@ shopt -s cmdhist
 shopt -s histappend
 PROMPT_COMMAND='history -a; history -n; '"$PROMPT_COMMAND"
 
-# shellcheck source=/dev/null
-[ -f /usr/share/bash-completion/bash_completion ] && \
-[ -z "${BASH_COMPLETION_VERSINFO-}" ] && \
-. /usr/share/bash-completion/bash_completion
+if [ -f /usr/share/bash-completion/bash_completion ] && [ -z "${BASH_COMPLETION_VERSINFO-}" ]; then
+  # shellcheck source=/dev/null
+  . /usr/share/bash-completion/bash_completion
+fi
 
-# shellcheck source=/dev/null
-[ -f /usr/share/doc/filkoll/command-not-found.bash ] && \
-. /usr/share/doc/filkoll/command-not-found.bash
+if [ -f /usr/share/doc/filkoll/command-not-found.bash ]; then
+  # shellcheck source=/dev/null
+  . /usr/share/doc/filkoll/command-not-found.bash
+fi

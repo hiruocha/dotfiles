@@ -18,9 +18,15 @@ esac
 
 setopt POSIX_BUILTINS
 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functions.sh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functions.sh"
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh" ]; then
+   . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh"
+fi
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh" ]; then
+  . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh"
+fi
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functions.sh" ]; then
+  . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functions.sh"
+fi
 
 setopt PROMPT_SUBST
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
@@ -46,28 +52,35 @@ autoload -U compinit
 compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-$ZSH_VERSION"
 zstyle ':completion:*' rehash true
 
-[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
-. /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh && \
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+  ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+fi
 
-[ -f /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh ] && \
-. /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh && \
-bindkey '^[[A' history-substring-search-up && bindkey '^[[B' history-substring-search-down
+if [ -f /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh ]; then
+  . /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+fi
 
-[ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ] && \
-. /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+if [ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ]; then
+  . /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+fi
 
-[ -f /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh ] && \
-. /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
+if [ -f /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh ]; then
+  . /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
+fi
 
-[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
-. /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh && \
-{
-  typeset -A ZSH_HIGHLIGHT_STYLES
-  ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta'
-  ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
-  ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
-}
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  {
+    typeset -A ZSH_HIGHLIGHT_STYLES
+    ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta'
+    ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
+  }
+fi
 
-[ -f /usr/share/doc/filkoll/command-not-found.zsh ] && \
-. /usr/share/doc/filkoll/command-not-found.zsh
+if [ -f /usr/share/doc/filkoll/command-not-found.zsh ]; then
+  . /usr/share/doc/filkoll/command-not-found.zsh
+fi
