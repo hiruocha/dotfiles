@@ -23,13 +23,22 @@ depends = ["shell"]
 "bash/bashrc" = "~/.bashrc"
 "bash/profile" = "~/.bash_profile"
 
+[zsh]
+depends = ["shell"]
+
+[zsh.files]
+"zsh/zshrc" = "~/.zshrc"
+
+[shell-meta]
+depends = ["bash", "zsh"]
+
 [yazi]
 
 [yazi.files]
 yazi = "~/.config/yazi"
 
 [cli-meta]
-depends = ["bash", "yazi"]
+depends = ["shell-meta", "yazi"]
 
 [pacman]
 
