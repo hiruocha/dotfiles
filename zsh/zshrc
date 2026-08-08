@@ -59,3 +59,12 @@ bindkey '^[[A' history-substring-search-up && bindkey '^[[B' history-substring-s
 
 [ -f /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh ] && \
 . /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
+
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+. /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh && \
+{
+  typeset -A ZSH_HIGHLIGHT_STYLES
+  ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta'
+  ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
+  ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
+}
