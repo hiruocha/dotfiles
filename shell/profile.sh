@@ -11,6 +11,16 @@
 # You should have received a copy of the GNU General Public License along with willker's dotfiles.
 # If not, see <https://www.gnu.org/licenses/>.
 
+path() {
+  case ":$PATH:" in
+    *:"$1":*)
+      ;;
+    *)
+      export PATH="$1:$PATH"
+      ;;
+  esac
+}
+
 umask 022
 
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
@@ -20,3 +30,5 @@ export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
+
+unset -f path
