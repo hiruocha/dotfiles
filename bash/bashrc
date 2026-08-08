@@ -42,3 +42,7 @@ PROMPT_COMMAND='history -a; history -n; '"$PROMPT_COMMAND"
 [ -f /usr/share/bash-completion/bash_completion ] && \
 [ -z "${BASH_COMPLETION_VERSINFO-}" ] && \
 . /usr/share/bash-completion/bash_completion
+
+# shellcheck source=/dev/null
+[ -f /usr/share/doc/filkoll/command-not-found.bash ] && \
+. /usr/share/doc/filkoll/command-not-found.bash
