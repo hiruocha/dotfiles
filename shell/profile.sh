@@ -31,6 +31,12 @@ export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
 
+if command -v ccache > /dev/null 2>&1; then
+  export USE_CCACHE=1
+  CCACHE_EXEC="$(command -v ccache)"
+  export CCACHE_EXEC
+fi
+
 if command -v sccache > /dev/null 2>&1 && [ -d /usr/lib/sccache/bin ]; then
   path "/usr/lib/sccache/bin"
 fi
