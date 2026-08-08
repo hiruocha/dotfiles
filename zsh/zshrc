@@ -68,3 +68,6 @@ bindkey '^[[A' history-substring-search-up && bindkey '^[[B' history-substring-s
   ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
   ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
 }
+
+[ -f /usr/share/doc/filkoll/command-not-found.zsh ] && \
+. /usr/share/doc/filkoll/command-not-found.zsh
