@@ -22,7 +22,15 @@ setopt POSIX_BUILTINS
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functions.sh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functions.sh"
 
-PS1=$'[%F{magenta}%n%f@%F{yellow}%m%f]-[%F{blue}%~%f]-[%(?.%F{green}.%F{red})%?%f]\n%(!.#.$) '
+setopt PROMPT_SUBST
+if [ -f /usr/share/git/completion/git-prompt.sh ]; then
+  . /usr/share/git/completion/git-prompt.sh
+  GIT_PS1_SHOWDIRTYSTATE=1
+  GIT_PS1_SHOWCOLORHINTS=1
+  PS1=$'[%F{magenta}%n%f@%F{yellow}%m%f]-[%F{blue}%~%f]-[%(?.%F{green}.%F{red})%?%f] $(__git_ps1 "%s") \n%(!.#.$) '
+else
+  PS1=$'[%F{magenta}%n%f@%F{yellow}%m%f]-[%F{blue}%~%f]-[%(?.%F{green}.%F{red})%?%f]\n%(!.#.$) '
+fi
 
 [ -d "${XDG_STATE_HOME:-$HOME/.local/state}/zsh" ] || mkdir -p "${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
 HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
