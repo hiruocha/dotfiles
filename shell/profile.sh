@@ -45,6 +45,8 @@ if command -v sccache > /dev/null 2>&1 && [ -d /usr/lib/sccache/bin ]; then
 fi
 
 export REPO_URL="https://gerrit-googlesource.proxy.ustclug.org/git-repo"
+export FLUTTER_STORAGE_BASE_URL="https://mirror.nju.edu.cn/flutter"
+export PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
 
 path "/usr/local/bin"
 path "$HOME/.local/bin"
