@@ -44,6 +44,8 @@ if command -v sccache > /dev/null 2>&1 && [ -d /usr/lib/sccache/bin ]; then
   path "/usr/lib/sccache/bin"
 fi
 
+export REPO_URL="https://gerrit-googlesource.proxy.ustclug.org/git-repo"
+
 path "/usr/local/bin"
 path "$HOME/.local/bin"
 
