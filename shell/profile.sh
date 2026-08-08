@@ -35,6 +35,9 @@ if command -v ccache > /dev/null 2>&1; then
   export USE_CCACHE=1
   CCACHE_EXEC="$(command -v ccache)"
   export CCACHE_EXEC
+  if [ -d /usr/lib/ccache/bin ]; then
+    path "/usr/lib/ccache/bin"
+  fi
 fi
 
 if command -v sccache > /dev/null 2>&1 && [ -d /usr/lib/sccache/bin ]; then
