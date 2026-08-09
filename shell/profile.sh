@@ -41,8 +41,8 @@ if command -v ccache > /dev/null 2>&1; then
 fi
 
 export REPO_URL="https://gerrit-googlesource.proxy.ustclug.org/git-repo"
-export FLUTTER_STORAGE_BASE_URL="https://mirror.nju.edu.cn/flutter"
-export PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
+export PUB_HOSTED_URL="https://pub.flutter-io.cn"
+export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
 export RUSTUP_UPDATE_ROOT="https://mirrors.cernet.edu.cn/rustup/rustup"
 export RUSTUP_DIST_SERVER="https://mirrors.cernet.edu.cn/rustup"
 
