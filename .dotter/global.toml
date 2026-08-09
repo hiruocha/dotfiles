@@ -43,7 +43,7 @@ cargo = "~/.local/share/cargo"
 yazi = "~/.config/yazi"
 
 [cli-meta]
-depends = ["shell-meta", "yazi"]
+depends = ["shell-meta", "yazi", "cargo"]
 
 [pacman]
 
