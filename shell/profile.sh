@@ -43,6 +43,8 @@ fi
 export REPO_URL="https://gerrit-googlesource.proxy.ustclug.org/git-repo"
 export FLUTTER_STORAGE_BASE_URL="https://mirror.nju.edu.cn/flutter"
 export PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
+export RUSTUP_UPDATE_ROOT="https://mirrors.cernet.edu.cn/rustup/rustup"
+export RUSTUP_DIST_SERVER="https://mirrors.cernet.edu.cn/rustup"
 
 path "/usr/local/bin"
 path "$HOME/.local/bin"
