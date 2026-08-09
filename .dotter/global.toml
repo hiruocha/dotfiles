@@ -32,6 +32,11 @@ depends = ["shell"]
 [shell-meta]
 depends = ["bash", "zsh"]
 
+[cargo]
+
+[cargo.files]
+cargo = "~/.local/share/cargo"
+
 [yazi]
 
 [yazi.files]
