@@ -54,6 +54,8 @@ export PUB_HOSTED_URL="https://pub.flutter-io.cn"
 export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
 export RUSTUP_UPDATE_ROOT="https://mirrors.cernet.edu.cn/rustup/rustup"
 export RUSTUP_DIST_SERVER="https://mirrors.cernet.edu.cn/rustup"
+export GOPROXY="https://goproxy.io,direct"
+export GOSUMDB="sum.golang.google.cn"
 
 path "/usr/local/bin"
 path "$HOME/.local/bin"
