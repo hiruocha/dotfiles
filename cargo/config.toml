@@ -6,6 +6,3 @@ registry = "sparse+https://mirrors.cernet.edu.cn/crates.io-index/"
 
 [registries.mirror]
 index = "sparse+https://mirrors.cernet.edu.cn/crates.io-index/"
-
-[build]
-rustc-wrapper = "/usr/bin/sccache"
