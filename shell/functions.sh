@@ -18,7 +18,6 @@ if command -v yazi > /dev/null; then
     shift $(($# - 1))
     set -- "$(command cat < "$1"; printf .; command rm -f -- "$1")"
     set -- "${1%.}"
-    # shellcheck disable=SC2164
-    [ "$1" != "$PWD" ] && [ -d "$1" ] && command cd -- "$1"
+    [ "$1" != "$PWD" ] && [ -d "$1" ] && command cd -- "$1" || return
   }
 fi
