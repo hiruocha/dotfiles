@@ -45,10 +45,6 @@ if command -v sccache > /dev/null 2>&1; then
   export RUSTC_WRAPPER
 fi
 
-if [ -d /usr/lib/mold ]; then
-  path "/usr/lib/mold"
-fi
-
 export REPO_URL="https://gerrit-googlesource.proxy.ustclug.org/git-repo"
 export PUB_HOSTED_URL="https://pub.flutter-io.cn"
 export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
