@@ -68,7 +68,7 @@ if plugin zsh-autosuggestions/zsh-autosuggestions.zsh; then
   ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
 
-plugin fzf-tab/fzf-tab.plugin.zsh || true
+command -v fzf > /dev/null 2>&1 && plugin fzf-tab/fzf-tab.plugin.zsh || true
 
 plugin zsh-sudo/sudo.plugin.zsh || plugin sudo/sudo.plugin.zsh || true
 
