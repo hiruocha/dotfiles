@@ -56,6 +56,9 @@ zstyle ':completion:*' rehash true cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/z
 if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
   ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+elif [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
 
 if [ -f /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh ]; then
@@ -74,6 +77,14 @@ fi
 
 if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  {
+    typeset -A ZSH_HIGHLIGHT_STYLES
+    ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta'
+    ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
+  }
+elif [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   {
     typeset -A ZSH_HIGHLIGHT_STYLES
     ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta'
