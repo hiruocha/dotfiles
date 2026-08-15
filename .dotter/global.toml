@@ -35,7 +35,7 @@ depends = ["bash", "zsh"]
 [cargo]
 
 [cargo.files]
-cargo = "~/.local/share/cargo"
+"cargo/config-mirror.toml" = { type = "symbolic", target = "~/.local/share/cargo/config.toml", if = '(command_success "[ -f ${XDG_STATE_HOME:-$HOME/.local/state}/need_mirror ]")' }
 
 [yazi]
 
