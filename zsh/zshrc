@@ -67,11 +67,6 @@ if plugin zsh-autosuggestions/zsh-autosuggestions.zsh; then
   ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
 
-if plugin zsh-history-substring-search/zsh-history-substring-search.zsh; then
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
-fi
-
 plugin fzf-tab/fzf-tab.plugin.zsh || true
 
 plugin zsh-sudo/sudo.plugin.zsh || true
@@ -81,6 +76,11 @@ if plugin zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; then
   ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta'
   ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
   ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
+fi
+
+if plugin zsh-history-substring-search/zsh-history-substring-search.zsh; then
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
 fi
 
 unset plugins_dir
