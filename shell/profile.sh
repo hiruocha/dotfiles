@@ -46,6 +46,11 @@ if command -v sccache > /dev/null 2>&1; then
   export RUSTC_WRAPPER
 fi
 
+if [ -f "$CARGO_HOME/env" ]; then
+  # shellcheck source=/dev/null
+  . "$CARGO_HOME/env"
+fi
+
 if [ -f "$XDG_STATE_HOME/need_mirror" ]; then
   export REPO_URL="https://gerrit-googlesource.proxy.ustclug.org/git-repo"
   export PUB_HOSTED_URL="https://pub.flutter-io.cn"
