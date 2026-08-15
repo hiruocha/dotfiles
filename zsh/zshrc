@@ -53,45 +53,41 @@ autoload -U compinit
 compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-$ZSH_VERSION"
 zstyle ':completion:*' rehash true cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
 
-if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-  . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-  ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-elif [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-  . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_PLUGINS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
+
+plugin() {
+  for plugins_dir in /usr/share/zsh/plugins /usr/share "$ZSH_PLUGINS_DIR"; do
+    if [ -f "$plugins_dir/$1" ]; then
+      . "$plugins_dir/$1"
+      return 0
+    fi
+  done
+
+  return 1
+}
+
+if plugin zsh-autosuggestions/zsh-autosuggestions.zsh; then
   ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
 
-if [ -f /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh ]; then
-  . /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+if plugin zsh-history-substring-search/zsh-history-substring-search.zsh; then
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
 fi
 
-if [ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ]; then
-  . /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+plugin fzf-tab/fzf-tab.plugin.zsh || true
+
+plugin zsh-sudo/sudo.plugin.zsh || true
+
+if plugin zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; then
+  typeset -A ZSH_HIGHLIGHT_STYLES
+  ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta'
+  ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
+  ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
 fi
 
-if [ -f /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh ]; then
-  . /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
-fi
-
-if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  {
-    typeset -A ZSH_HIGHLIGHT_STYLES
-    ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta'
-    ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
-    ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
-  }
-elif [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  {
-    typeset -A ZSH_HIGHLIGHT_STYLES
-    ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta'
-    ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
-    ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
-  }
-fi
+unset plugins_dir
+unset -f plugin
 
 if [ -f /usr/share/doc/filkoll/command-not-found.zsh ]; then
   . /usr/share/doc/filkoll/command-not-found.zsh
