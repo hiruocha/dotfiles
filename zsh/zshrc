@@ -61,6 +61,8 @@ plugin() {
   return 1
 }
 
+plugin zsh-completions/zsh-completions.plugin.zsh || true
+
 if plugin zsh-autosuggestions/zsh-autosuggestions.zsh; then
   ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
