@@ -18,8 +18,8 @@ esac
 
 setopt POSIX_BUILTINS
 
-if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh" ]; then
-  . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh"
+if [ -f "$HOME/.profile" ]; then
+  . "$HOME/.profile"
 fi
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh" ]; then
   . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh"
