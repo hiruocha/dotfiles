@@ -46,6 +46,10 @@ if command -v sccache > /dev/null 2>&1; then
   export RUSTC_WRAPPER
 fi
 
+if command -v mold > /dev/null 2>&1; then
+  export RUSTFLAGS="-C link-arg=-fuse-ld=mold"
+fi
+
 if [ -f "$CARGO_HOME/env" ]; then
   # shellcheck source=/dev/null
   . "$CARGO_HOME/env"
