@@ -38,13 +38,18 @@ depends = ["bash", "zsh"]
 [cargo.files]
 "cargo/config-mirror.toml" = { type = "symbolic", target = "~/.local/share/cargo/config.toml", if = '(command_success "[ -f ${XDG_STATE_HOME:-$HOME/.local/state}/need_mirror ]")' }
 
+[npm]
+
+[npm.files]
+npm = "~/.config/npm"
+
 [yazi]
 
 [yazi.files]
 yazi = "~/.config/yazi"
 
 [cli-meta]
-depends = ["shell-meta", "yazi", "cargo"]
+depends = ["shell-meta", "yazi", "cargo", "npm"]
 
 [pacman]
 
