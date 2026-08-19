@@ -16,9 +16,9 @@ case "$-" in
   *) return ;;
 esac
 
-if [ -f "$HOME/.profile" ]; then
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/environment.sh" ]; then
   # shellcheck source=/dev/null
-  . "$HOME/.profile"
+  . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/environment.sh"
 fi
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh" ]; then
   # shellcheck source=/dev/null

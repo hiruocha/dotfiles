@@ -71,8 +71,3 @@ path "/usr/local/bin"
 path "$HOME/.local/bin"
 
 unset -f path
-
-if [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ]; then
-  # shellcheck source=/dev/null
-  . "$HOME/.bashrc"
-fi

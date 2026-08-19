@@ -16,13 +16,14 @@
 [shell.files]
 "shell/aliases.sh" = "~/.config/shell/aliases.sh"
 "shell/functions.sh" = "~/.config/shell/functions.sh"
-"shell/profile.sh" = "~/.profile"
+"shell/environment.sh" = "~/.config/shell/environment.sh"
 
 [bash]
 depends = ["shell"]
 
 [bash.files]
 "bash/bashrc" = "~/.bashrc"
+"bash/bash_profile" = "~/.bash_profile"
 
 [zsh]
 depends = ["shell"]
