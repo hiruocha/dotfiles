@@ -33,6 +33,11 @@ export GOPATH="$XDG_DATA_HOME/go"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 [ -d "$XDG_DATA_HOME/npm/lib" ] || mkdir -p "$XDG_DATA_HOME/npm/lib"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+
+if [ -d "$PNPM_HOME/bin" ]; then
+  path "$PNPM_HOME/bin"
+fi
 
 if command -v ccache > /dev/null 2>&1; then
   export USE_CCACHE=1
