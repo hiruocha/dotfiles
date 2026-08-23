@@ -51,7 +51,7 @@ setopt HIST_EXPIRE_DUPS_FIRST
 ZSH_PLUGINS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
 
 plugin() {
-  for plugins_dir in /usr/share/zsh/plugins /usr/share "$ZSH_PLUGINS_DIR"; do
+  for plugins_dir in "$ZSH_PLUGINS_DIR" /usr/share/zsh/plugins /usr/share/zsh/site-functions /usr/share; do
     if [ -f "$plugins_dir/$1/$1.plugin.zsh" ]; then
       . "$plugins_dir/$1/$1.plugin.zsh"
       return 0
