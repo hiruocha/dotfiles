@@ -49,12 +49,20 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 
 ZSH_PLUGINS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
-OHMYZSH_PLUGINS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/ohmyzsh/plugins"
 
 plugin() {
-  for plugins_dir in /usr/share/zsh/plugins /usr/share "$ZSH_PLUGINS_DIR" "$OHMYZSH_PLUGINS_DIR"; do
-    if [ -f "$plugins_dir/$1" ]; then
-      . "$plugins_dir/$1"
+  for plugins_dir in /usr/share/zsh/plugins /usr/share "$ZSH_PLUGINS_DIR"; do
+    if [ -f "$plugins_dir/$1/$1.plugin.zsh" ]; then
+      . "$plugins_dir/$1/$1.plugin.zsh"
+      return 0
+    elif [ -f "$plugins_dir/$1/$1.zsh" ]; then
+      . "$plugins_dir/$1/$1.zsh"
+      return 0
+    elif [ -f "$plugins_dir/$1.plugin.zsh" ]; then
+      . "$plugins_dir/$1.plugin.zsh"
+      return 0
+    elif [ -f "$plugins_dir/$1.zsh" ]; then
+      . "$plugins_dir/$1.zsh"
       return 0
     fi
   done
@@ -62,24 +70,22 @@ plugin() {
   return 1
 }
 
-plugin zsh-completions/zsh-completions.plugin.zsh || true
+plugin zsh-completions || true
 
-if plugin zsh-autosuggestions/zsh-autosuggestions.zsh; then
+if plugin zsh-autosuggestions; then
   ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
 
-command -v fzf > /dev/null 2>&1 && plugin fzf-tab/fzf-tab.plugin.zsh || true
+command -v fzf > /dev/null 2>&1 && plugin fzf-tab || true
 
-plugin zsh-sudo/sudo.plugin.zsh || plugin sudo/sudo.plugin.zsh || true
-
-if plugin zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; then
+if plugin zsh-syntax-highlighting; then
   typeset -A ZSH_HIGHLIGHT_STYLES
   ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta'
   ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
   ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
 fi
 
-if plugin zsh-history-substring-search/zsh-history-substring-search.zsh; then
+if plugin zsh-history-substring-search; then
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
 fi
