@@ -42,6 +42,10 @@ export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 [ -d "$XDG_DATA_HOME/npm/lib" ] || mkdir -p "$XDG_DATA_HOME/npm/lib"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
+export FVM_CACHE_PATH="$XDG_CACHE_HOME/fvm"
+export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
+export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 
 if [ -d "$PNPM_HOME/bin" ]; then
   path "$PNPM_HOME/bin"
