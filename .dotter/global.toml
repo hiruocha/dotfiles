@@ -29,7 +29,8 @@ depends = ["shell"]
 depends = ["shell"]
 
 [zsh.files]
-"zsh/zshrc" = "~/.zshrc"
+"zsh/zshenv" = "~/.zshenv"
+"zsh/zshrc" = "~/.config/zsh/.zshrc"
 
 [shell-meta]
 depends = ["bash", "zsh"]
