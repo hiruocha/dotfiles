@@ -23,6 +23,14 @@ path() {
 
 umask 022
 
+for editor in nvim vim nano vi; do
+  if command -v "$editor" >/dev/null 2>&1; then
+    export EDITOR="$editor"
+    export VISUAL="$editor"
+    break
+  fi
+done
+
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
