@@ -47,6 +47,10 @@ export FVM_CACHE_PATH="$XDG_CACHE_HOME/fvm"
 export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 
+if [ -d "$XDG_DATA_HOME/npm/bin" ]; then
+  path "$XDG_DATA_HOME/npm/bin"
+fi
+
 if [ -d "$PNPM_HOME/bin" ]; then
   path "$PNPM_HOME/bin"
 fi
