@@ -73,9 +73,8 @@ if command -v mold > /dev/null 2>&1; then
   export RUSTFLAGS="-C link-arg=-fuse-ld=mold"
 fi
 
-if [ -f "$CARGO_HOME/env" ]; then
-  # shellcheck source=/dev/null
-  . "$CARGO_HOME/env"
+if [ -d "$CARGO_HOME/bin" ]; then
+  path "$CARGO_HOME/bin"
 fi
 
 if [ -f "$XDG_STATE_HOME/need_mirror" ]; then
