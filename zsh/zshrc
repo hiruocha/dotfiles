@@ -53,51 +53,6 @@ setopt HIST_IGNORE_SPACE
 setopt AUTOCD
 setopt NUMERIC_GLOB_SORT
 
-ZSH_PLUGINS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
-
-plugin() {
-  for plugins_dir in "$ZSH_PLUGINS_DIR" /usr/share/zsh/plugins /usr/share/zsh/site-functions /usr/share; do
-    if [ -f "$plugins_dir/$1/$1.plugin.zsh" ]; then
-      . "$plugins_dir/$1/$1.plugin.zsh"
-      return 0
-    elif [ -f "$plugins_dir/$1/$1.zsh" ]; then
-      . "$plugins_dir/$1/$1.zsh"
-      return 0
-    elif [ -f "$plugins_dir/$1.plugin.zsh" ]; then
-      . "$plugins_dir/$1.plugin.zsh"
-      return 0
-    elif [ -f "$plugins_dir/$1.zsh" ]; then
-      . "$plugins_dir/$1.zsh"
-      return 0
-    fi
-  done
-
-  return 1
-}
-
-plugin zsh-completions || true
-
-if plugin zsh-autosuggestions; then
-  ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-fi
-
-command -v fzf > /dev/null 2>&1 && plugin fzf-tab || true
-
-if plugin zsh-syntax-highlighting; then
-  typeset -A ZSH_HIGHLIGHT_STYLES
-  ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta'
-  ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
-  ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
-fi
-
-if plugin zsh-history-substring-search; then
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
-fi
-
-unset plugins_dir
-unset -f plugin
-
 [ -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh" ] || mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 autoload -U compinit
 compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
@@ -113,3 +68,7 @@ fi
 if [ -f /usr/share/doc/filkoll/command-not-found.zsh ]; then
   . /usr/share/doc/filkoll/command-not-found.zsh
 fi
+
+for rc in $ZDOTDIR/rc.d/*.zsh; do
+  . "$rc"
+done
