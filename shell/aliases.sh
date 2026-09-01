@@ -19,3 +19,4 @@ alias ll='ls -lh'
 alias la='ls -A'
 
 alias cls=clear
+alias ff=fastfetch
