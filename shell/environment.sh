@@ -77,6 +77,8 @@ if [ -d "$CARGO_HOME/bin" ]; then
   path "$CARGO_HOME/bin"
 fi
 
+[ -x /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 if [ -f "$XDG_STATE_HOME/need_mirror" ]; then
   export REPO_URL="https://gerrit-googlesource.proxy.ustclug.org/git-repo"
   export PUB_HOSTED_URL="https://pub.flutter-io.cn"
@@ -85,6 +87,11 @@ if [ -f "$XDG_STATE_HOME/need_mirror" ]; then
   export RUSTUP_DIST_SERVER="https://mirrors.cernet.edu.cn/rustup"
   export GOPROXY="https://goproxy.io,direct"
   export GOSUMDB="sum.golang.google.cn"
+  export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.cernet.edu.cn/homebrew/brew.git"
+  export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.cernet.edu.cn/homebrew/homebrew-core.git"
+  export HOMEBREW_API_DOMAIN="https://mirrors.cernet.edu.cn/homebrew-bottles/api"
+  export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.cernet.edu.cn/homebrew-bottles"
+  export HOMEBREW_PIP_INDEX_URL="https://mirrors.cernet.edu.cn/pypi/web/simple"
 fi
 
 path "/usr/local/bin"
