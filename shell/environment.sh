@@ -97,4 +97,12 @@ fi
 path "/usr/local/bin"
 path "$HOME/.local/bin"
 
+if command -v ssh-tpm-agent > /dev/null 2>&1; then
+  _ssh_tpm_sock="$(ssh-tpm-agent --print-socket)"
+  if [ -e "$_ssh_tpm_sock" ]; then
+    export SSH_AUTH_SOCK="$_ssh_tpm_sock"
+  fi
+  unset _ssh_tpm_sock
+fi
+
 unset -f path
