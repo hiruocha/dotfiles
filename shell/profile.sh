@@ -46,6 +46,7 @@ export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
 export FVM_CACHE_PATH="$XDG_CACHE_HOME/fvm"
 export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+export PI_CODING_AGENT_DIR="$XDG_DATA_HOME/pi"
 
 if [ -d "$XDG_DATA_HOME/npm/bin" ]; then
   path "$XDG_DATA_HOME/npm/bin"
