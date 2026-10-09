@@ -12,9 +12,9 @@
 # If not, see <https://www.gnu.org/licenses/>.
 
 ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
-if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh" ]; then
-  . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh"
+if [ -f "$HOME/.profile" ]; then
+  . "$HOME/.profile"
 fi
-if [ -f $ZDOTDIR/.zshenv ]; then
-  . $ZDOTDIR/.zshenv
+if [ -f "$ZDOTDIR/.zshenv" ]; then
+  . "$ZDOTDIR/.zshenv"
 fi

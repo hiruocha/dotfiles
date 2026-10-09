@@ -18,8 +18,8 @@ esac
 
 setopt POSIX_BUILTINS
 
-if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh" ]; then
-  . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh"
+if [ -f "$HOME/.profile" ]; then
+  . "$HOME/.profile"
 fi
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh" ]; then
   . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliases.sh"
@@ -29,8 +29,8 @@ if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functions.sh" ]; then
 fi
 
 setopt PROMPT_SUBST
-if [ -f /usr/share/git/completion/git-prompt.sh ]; then
-  . /usr/share/git/completion/git-prompt.sh
+if [ -f "/usr/share/git/completion/git-prompt.sh" ]; then
+  . "/usr/share/git/completion/git-prompt.sh"
   GIT_PS1_SHOWDIRTYSTATE=1
   GIT_PS1_SHOWCOLORHINTS=1
   PS1=$'[%F{magenta}%n%f@%F{yellow}%m%f]-[%F{blue}%~%f]-[%(?.%F{green}.%F{red})%?%f] $(__git_ps1 "%s") \n%(!.#.$) '
@@ -65,10 +65,10 @@ if command -v zoxide > /dev/null 2>&1; then
   eval "$(zoxide init zsh)"
 fi
 
-if [ -f /usr/share/doc/filkoll/command-not-found.zsh ]; then
-  . /usr/share/doc/filkoll/command-not-found.zsh
+if [ -f "/usr/share/doc/filkoll/command-not-found.zsh" ]; then
+  . "/usr/share/doc/filkoll/command-not-found.zsh"
 fi
 
-for rc in $ZDOTDIR/rc.d/*.zsh; do
+for rc in "$ZDOTDIR/rc.d/*.zsh"; do
   . "$rc"
 done
